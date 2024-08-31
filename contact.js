@@ -46,7 +46,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Your message has been submitted successfully!');
+// form//
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+    showToast();
 });
+
+function showToast() {
+    var toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function() {
+        toast.className = toast.className.replace("show", "");
+    }, 3000);
+}
