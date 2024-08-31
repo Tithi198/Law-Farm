@@ -404,6 +404,11 @@ header {
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.service-item:hover img {
+  opacity: 0.8;
 }
 
 .service-item h3 {
@@ -461,6 +466,7 @@ header {
     font-size: 1rem;
   }
 }
+
 
 /* Testimonials */
 .testimonial {

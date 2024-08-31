@@ -64,18 +64,7 @@ var swiper = new Swiper(".mySwiper", {
         }
     }
 
-    // Services hover effect
-    const serviceItems = document.querySelectorAll('.service-item');
-    serviceItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-        });
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
-    });
+    
 
     // Sticky header
     const header = document.querySelector('header');

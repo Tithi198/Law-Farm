@@ -453,27 +453,70 @@ button {
   box-sizing: border-box; /* Ensure padding is included in width */
 }
 
+/* Toast notification styles */
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
 @media (min-width: 768px) {
   .question-form, .contact-info {
-    width: 48%;
-    margin-bottom: 0;
+      width: 48%;
+      margin-bottom: 0;
   }
 
   .contact-section {
-    padding: 40px;
+      padding: 40px;
   }
 
   .map-container iframe {
-    height: 350px; /* Increase map height for larger screens */
+      height: 350px; /* Increase map height for larger screens */
   }
 }
 
 @media (min-width: 992px) {
   .map-container iframe {
-    height: 450px;
-  }
+      height: 450px;
+  }
 }
-
 
 /*contact-section*/
 
