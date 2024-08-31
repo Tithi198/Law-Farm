@@ -1,0 +1,2486 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Top Header */
+  .top-header {
+    background-color: #0056b3;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .top-header .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+  }
+  
+  /* Header */
+  header {
+    background-color: white;
+    color: #333;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+  
+  .logo img {
+    height: 80px;
+  }
+  
+  /* Navigation Menu */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-menu ul li {
+    margin: 0 1rem;
+  }
+  
+  .nav-menu ul li a {
+    text-decoration: none;
+    color: #1e1d19;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-menu ul li a:hover {
+    color: #086eda;
+  }
+  
+  /* Services Dropdown */
+  .services-dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 1rem;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row; /* Horizontal layout for desktop */
+  }
+  
+  .services-dropdown.active .dropdown-content {
+    display: flex;
+  }
+  
+  /* Arrow direction */
+  .services-dropdown.active > a > i {
+    transform: rotate(180deg);
+  }
+  
+  /* Dropdown columns */
+  .dropdown-columns {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .dropdown-column {
+    flex: 1;
+    padding: 0 1rem;
+  }
+  
+  .dropdown-column h3 {
+    color: #1e1d19;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+  }
+  
+  .dropdown-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #086eda;
+  }
+  
+  .dropdown-content a {
+    color: #1e1d19;
+    padding: 0.5rem 0;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .dropdown-content a:hover {
+    color: #086eda;
+  }
+  
+  /* Header Buttons */
+  .header-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Schedule Button */
+  .schedule-btn {
+    background-color: #0077be;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  .schedule-btn:hover {
+    background-color: #004494;
+    color: #fff;
+  }
+  
+  /* Call Button */
+  .call-btn {
+    background-color: #0077be;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .call-btn:hover {
+    background-color: #005fa3;
+  }
+  
+  /* Menu Toggle Button for Mobile */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Close Button for Mobile Menu */
+  .close-nav {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  /* Mobile Logo in Menu */
+  .mobile-logo {
+    display: none;
+    margin-bottom: 20px;
+  }
+  
+  .mobile-logo img {
+    height: 50px;
+    width: auto;
+  }
+  
+  /* Divider between Accounting and Tax Services */
+  .dropdown-divider {
+    width: 1px;
+    background-color: #ddd;
+    margin: 0 20px;
+    display: none;
+  }
+  
+  /* Display the divider only on desktop screens */
+  @media (min-width: 769px) {
+    .dropdown-divider {
+      display: block;
+    }
+  }
+  
+  /* Mobile Navigation Menu */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: row;
+      align-items: center;
+      padding: 15px 20px;
+    }
+  
+    .logo img {
+      height: 50px;
+    }
+  
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 250px;
+      background-color: #fff;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 1001;
+      overflow-y: auto; /* Enables vertical scrolling */
+    }
+  
+    .nav-menu.show {
+      left: 0;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  
+    .close-nav {
+      display: block;
+    }
+  
+    .mobile-logo {
+      display: block;
+    }
+  
+    .header-buttons {
+      display: none;
+    }
+  
+    .services-dropdown .dropdown-content {
+      position: static;
+      transform: none;
+      box-shadow: none;
+      padding: 0;
+      display: none;
+      flex-direction: column; /* Vertical layout for mobile */
+    }
+  
+    .services-dropdown.active .dropdown-content {
+      display: flex; /* Show dropdown content on mobile */
+    }
+  
+    .dropdown-columns {
+      flex-direction: column; /* Stack columns vertically */
+    }
+  
+    .dropdown-column {
+      padding: 10px 0;
+    }
+  
+    .nav-menu ul {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .nav-menu ul li {
+      margin: 10px 0;
+    }
+  }
+  
+
+
+
+/* Hero Section */
+  .hero {
+    position: relative;
+    height: 500px;
+    background-image: url('images/tax-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 18, 18, 0.5);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  .author-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .author-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .author-name, .publish-date {
+    margin-right: 15px;
+  }
+  
+  /* Responsive Styles for Hero Section */
+  @media (max-width: 768px) {
+    .hero {
+        height: 400px;
+        padding: 0 30px;
+    }
+  
+    .hero h1 {
+        font-size: 36px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero {
+        height: 300px;
+        padding: 0 20px;
+    }
+  
+    .hero h1 {
+        font-size: 28px;
+    }
+  }
+
+/* Content Section */
+.content {
+    padding: 60px 20px;
+    text-align: left; /* Align text to the left */
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content on the page */
+}
+
+.content-text p {
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #333; /* Ensure text color matches your design */
+}
+
+.cta-button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 20px; /* Space above the button */
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+
+    .content-text p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+
+/* Table of Content */
+.table-of-contents {
+  background-color: #e6f2ff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 1200px; /* Sets the maximum width */
+  margin: 2rem auto; /* Centers the container horizontally */
+  text-align: left; /* Aligns text to the left */
+  padding-left: 10%; /* Ensures equal padding on both sides */
+  padding-right: 10%;
+  box-sizing: border-box; /* Includes padding and border in the element's total width */
+}
+
+.table-of-contents h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.table-of-contents h3 {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.toc-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds gap between columns */
+}
+
+.toc-columns ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  flex: 1;
+  min-width: 200px; /* Ensures columns have a minimum width */
+}
+
+.toc-columns ul li {
+  position: relative;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  padding-left: 30px;
+  color: #333;
+}
+
+.toc-columns ul li::before {
+  content: "✓";
+  color: #007bff;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .toc-columns {
+      flex-direction: column;
+  }
+
+  .toc-columns ul {
+      margin-bottom: 2rem;
+  }
+}
+
+.accessibility {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Self-Employed Section Styles */
+.self-employed-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.self-employed-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.self-employed-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.self-employed-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.self-employed-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.self-employed-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.self-employed-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .self-employed-container {
+        flex-direction: column;
+    }
+
+    .self-employed-text {
+        padding: 15px;
+    }
+
+    .self-employed-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .self-employed-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .self-employed-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .self-employed-text p {
+        font-size: 0.9rem;
+    }
+
+    .self-employed-image img {
+        height: 200px;
+    }
+}
+
+/* Freelancer Section Styles */
+.freelancer-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.freelancer-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.freelancer-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.freelancer-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.freelancer-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.freelancer-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.freelancer-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .freelancer-container {
+        flex-direction: column-reverse;
+    }
+
+    .freelancer-text {
+        padding: 15px;
+    }
+
+    .freelancer-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .freelancer-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .freelancer-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .freelancer-text p {
+        font-size: 0.9rem;
+    }
+
+    .freelancer-image img {
+        height: 200px;
+    }
+}
+
+/* Gig Economy Worker Section Styles */
+.gig-economy-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.gig-economy-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.gig-economy-text {
+    padding: 20px;
+    flex: 1;
+}
+
+
+
+.gig-economy-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.gig-economy-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.gig-economy-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gig-economy-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-economy-container {
+        flex-direction: column-reverse;
+    }
+
+    .gig-economy-text {
+        padding: 15px;
+    }
+
+    .gig-economy-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-economy-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-economy-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .gig-economy-text p {
+        font-size: 0.9rem;
+    }
+
+    .gig-economy-image img {
+        height: 200px;
+    }
+}
+
+/* Freelancer Tax Section Styles */
+.freelancer-tax-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.freelancer-tax-container {
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.freelancer-tax-text {
+    margin-bottom: 20px;
+}
+
+.freelancer-tax-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.freelancer-tax-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.freelancer-tax-table {
+    overflow-x: auto; /* Ensure table is scrollable on smaller screens */
+}
+
+.freelancer-tax-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.freelancer-tax-table th,
+.freelancer-tax-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.freelancer-tax-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.freelancer-tax-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .freelancer-tax-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .freelancer-tax-text p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .freelancer-tax-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .freelancer-tax-text p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Freelancer Tax Filing and Implications Section Styles */
+.freelancer-tax-filing-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.freelancer-tax-filing-container {
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.freelancer-tax-filing-text,
+.freelancer-tax-implications-text {
+    margin-bottom: 20px;
+}
+
+.freelancer-tax-filing-text h2,
+.freelancer-tax-implications-text h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.freelancer-tax-filing-text p,
+.freelancer-tax-implications-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.freelancer-tax-filing-text strong,
+.freelancer-tax-implications-text strong {
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .freelancer-tax-filing-text h2,
+    .freelancer-tax-implications-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .freelancer-tax-filing-text p,
+    .freelancer-tax-implications-text p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .freelancer-tax-filing-text h2,
+    .freelancer-tax-implications-text h2 {
+        font-size: 1.1rem;
+    }
+
+    .freelancer-tax-filing-text p,
+    .freelancer-tax-implications-text p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Gig Work Section Styles */
+.gig-work-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.gig-work-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.gig-work-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.gig-work-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.gig-work-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.gig-work-text ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.gig-work-text ul li {
+    margin-bottom: 10px;
+}
+
+.gig-work-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gig-work-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-work-container {
+        flex-direction: column-reverse;
+    }
+
+    .gig-work-text {
+        padding: 15px;
+    }
+
+    .gig-work-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-work-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-work-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .gig-work-text p {
+        font-size: 0.9rem;
+    }
+
+    .gig-work-image img {
+        height: 200px;
+    }
+}
+
+/* Gig Economy Work Section Styles */
+.gig-economy-work-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.gig-economy-work-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.gig-economy-work-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gig-economy-work-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.gig-economy-work-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.gig-economy-work-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.gig-economy-work-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-economy-work-container {
+        flex-direction: column-reverse;
+    }
+
+    .gig-economy-work-text {
+        padding: 15px;
+    }
+
+    .gig-economy-work-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-economy-work-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-economy-work-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .gig-economy-work-text p {
+        font-size: 0.9rem;
+    }
+
+    .gig-economy-work-image img {
+        height: 200px;
+    }
+}
+
+/* Gig Economy Worker Benefits Section Styles */
+.gig-worker-benefits-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.gig-worker-benefits-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.gig-worker-benefits-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.gig-worker-benefits-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.gig-worker-benefits-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.gig-worker-benefits-text a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.gig-worker-benefits-text a:hover {
+    text-decoration: underline;
+}
+
+.gig-worker-benefits-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gig-worker-benefits-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-worker-benefits-container {
+        flex-direction: column-reverse;
+    }
+
+    .gig-worker-benefits-text {
+        padding: 15px;
+    }
+
+    .gig-worker-benefits-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-worker-benefits-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-worker-benefits-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .gig-worker-benefits-text p {
+        font-size: 0.9rem;
+    }
+
+    .gig-worker-benefits-image img {
+        height: 200px;
+    }
+}
+
+/* Gig Worker Tax Section Styles */
+.gig-worker-tax-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.gig-worker-tax-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.gig-worker-tax-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gig-worker-tax-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.gig-worker-tax-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.gig-worker-tax-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.gig-worker-tax-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.gig-worker-tax-text a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.gig-worker-tax-text a:hover {
+    text-decoration: underline;
+}
+
+
+.gig-worker-tax-text strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-worker-tax-container {
+        flex-direction: column-reverse;
+    }
+
+    .gig-worker-tax-text {
+        padding: 15px;
+    }
+
+    .gig-worker-tax-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-worker-tax-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-worker-tax-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .gig-worker-tax-text p {
+        font-size: 0.9rem;
+    }
+
+    .gig-worker-tax-image img {
+        height: 200px;
+    }
+}
+/* Tax for Gig Workers with Multiple Gigs Section Styles */
+.gig-worker-multiple-gigs-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.gig-worker-multiple-gigs-container {
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.gig-worker-multiple-gigs-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.gig-worker-multiple-gigs-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.gig-worker-multiple-gigs-text a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.gig-worker-multiple-gigs-text a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+.gig-worker-multiple-gigs-text strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-worker-multiple-gigs-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-worker-multiple-gigs-text p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-worker-multiple-gigs-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .gig-worker-multiple-gigs-text p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Failing to Pay Your Taxes on Freelance and Gig Income Section Styles */
+.gig-worker-tax-penalty-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.gig-worker-tax-penalty-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.gig-worker-tax-penalty-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gig-worker-tax-penalty-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.gig-worker-tax-penalty-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.gig-worker-tax-penalty-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.gig-worker-tax-penalty-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-worker-tax-penalty-container {
+        flex-direction: column-reverse;
+    }
+
+    .gig-worker-tax-penalty-text {
+        padding: 15px;
+    }
+
+    .gig-worker-tax-penalty-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-worker-tax-penalty-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-worker-tax-penalty-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .gig-worker-tax-penalty-text p {
+        font-size: 0.9rem;
+    }
+
+    .gig-worker-tax-penalty-image img {
+        height: 200px;
+    }
+}
+
+/* How to Reduce Your Tax Bill as a Gig Worker Section Styles */
+.gig-worker-tax-reduction-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.gig-worker-tax-reduction-container {
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.gig-worker-tax-reduction-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.gig-worker-tax-reduction-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.gig-worker-tax-reduction-text ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.gig-worker-tax-reduction-text li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.gig-worker-tax-reduction-text strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-worker-tax-reduction-text h2 {
+        font-size: 1.75rem;
+    }
+
+    .gig-worker-tax-reduction-text p,
+    .gig-worker-tax-reduction-text li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-worker-tax-reduction-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-worker-tax-reduction-text p,
+    .gig-worker-tax-reduction-text li {
+        font-size: 0.85rem;
+    }
+}
+
+/* Tax Implications for Gig Workers Earning on Foreign Soil Section Styles */
+.gig-worker-foreign-tax-section {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+}
+
+.gig-worker-foreign-tax-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.gig-worker-foreign-tax-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.gig-worker-foreign-tax-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.gig-worker-foreign-tax-text ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.gig-worker-foreign-tax-text li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.gig-worker-foreign-tax-text strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Tips for American Gig Workers Residing Abroad Section Styles */
+.gig-worker-tips-abroad-section {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+}
+
+.gig-worker-tips-abroad-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.gig-worker-tips-abroad-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.gig-worker-tips-abroad-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gig-worker-foreign-tax-text h2,
+    .gig-worker-tips-abroad-text h2 {
+        font-size: 1.75rem;
+    }
+
+    .gig-worker-foreign-tax-text p,
+    .gig-worker-foreign-tax-text li,
+    .gig-worker-tips-abroad-text p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gig-worker-foreign-tax-text h2,
+    .gig-worker-tips-abroad-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .gig-worker-foreign-tax-text p,
+    .gig-worker-foreign-tax-text li,
+    .gig-worker-tips-abroad-text p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Maintain Your Income Record Section Styles */
+.income-record-section {
+    background-color: #f4f4f4;
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.income-record-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%; /* Adjust the width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.income-record-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.income-record-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.income-record-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.income-record-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.income-record-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .income-record-container {
+        flex-direction: column-reverse;
+    }
+
+    .income-record-text {
+        padding: 15px;
+    }
+
+    .income-record-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .income-record-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .income-record-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .income-record-text p {
+        font-size: 0.9rem;
+    }
+
+    .income-record-image img {
+        height: 200px;
+    }
+}
+
+/* Know Your Income Tax Forms Section Styles */
+.income-tax-forms-section {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+}
+
+.income-tax-forms-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.income-tax-forms-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.income-tax-forms-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.income-tax-forms-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.income-tax-forms-text h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.income-tax-forms-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.income-tax-forms-text a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.income-tax-forms-text a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .income-tax-forms-container {
+        flex-direction: column-reverse;
+    }
+
+    .income-tax-forms-text {
+        padding: 15px;
+    }
+
+    .income-tax-forms-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .income-tax-forms-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .income-tax-forms-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .income-tax-forms-text p {
+        font-size: 0.9rem;
+    }
+
+    .income-tax-forms-image img {
+        height: 200px;
+    }
+}
+
+/* What Deductions Can Freelancers Take Section Styles */
+.freelancer-deductions-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.freelancer-deductions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.freelancer-deductions-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.freelancer-deductions-container p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.deductions-list-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.deductions-list {
+    flex: 1;
+    margin: 0 20px;
+    list-style-type: none;
+    text-align: left;
+}
+
+.deductions-list li {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.deductions-list strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .deductions-list-container {
+        flex-direction: column;
+    }
+
+    .deductions-list {
+        margin: 0 auto 20px auto;
+    }
+
+    .freelancer-deductions-container h2 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .freelancer-deductions-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .deductions-list li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Quarterly Tax Dates Section Styles */
+.quarterly-tax-dates-section {
+    background-color: #ffffff;
+    padding: 40px 20px;
+}
+
+.quarterly-tax-dates-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.quarterly-tax-dates-text {
+    flex: 1;
+    margin-right: 20px;
+    text-align: left;
+}
+
+.quarterly-tax-dates-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.quarterly-tax-dates-text p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.quarterly-tax-dates-text ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.quarterly-tax-dates-text ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.quarterly-tax-dates-image {
+    flex: 1;
+    text-align: center;
+}
+
+.quarterly-tax-dates-image img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quarterly-tax-dates-container {
+        flex-direction: column;
+    }
+
+    .quarterly-tax-dates-text {
+        margin-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .quarterly-tax-dates-text ul {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .quarterly-tax-dates-text h2 {
+        font-size: 1.75rem;
+    }
+
+    .quarterly-tax-dates-text p, .quarterly-tax-dates-text ul li {
+        font-size: 1rem;
+    }
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-title {
+    flex: 1;
+    padding-right: 50px;
+    text-align: left;
+}
+
+.faq-title h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.faq-title h2 .highlight {
+    color: #007bff;
+}
+
+.dots {
+    display: flex;
+    align-items: center;
+}
+
+.dots span {
+    font-size: 2rem;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.dots hr {
+    flex: 1;
+    border: 1px solid #007bff;
+}
+
+.faq-content {
+    flex: 2;
+    text-align: right;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-question {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 15px 20px;
+    font-size: 1.125rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #0056b3;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 20px;
+    border-left: 5px solid #007bff;
+    background-color: #f9f9f9;
+    text-align: justify;
+}
+
+.faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Toggle FAQ Answer */
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-question {
+    background-color: #0056b3;
+}
+
+/* Add toggle arrow */
+.faq-question::after {
+    content: "\25bc";
+    font-size: 1.5rem;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    transform: rotate(180deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-title {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .faq-content {
+        text-align: left;
+    }
+}
+
+
+/* Conclusion Section */
+.conclusion-section {
+    background-color: #e8f0fc;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.conclusion-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    background-color: #d1e7ff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.conclusion-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.conclusion-section p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+.conclusion-section strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .conclusion-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .conclusion-section p {
+        font-size: 1rem;
+    }
+}
+
+
+ /* Areas Served Map */
+  .areas-served {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+    }
+    
+    h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    }
+    
+    .underline {
+    width: 100px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 0 auto 30px;
+    }
+    
+    .description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    }
+    
+    .map-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+    
+    .map-item {
+    flex-basis: calc(25% - 15px);
+    margin-bottom: 20px;
+    }
+    
+    .map-item iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    }
+    
+    .map-item p {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    }
+    
+    @media (max-width: 768px) {
+    .map-item {
+      flex-basis: calc(50% - 10px);
+    }
+    
+    h2 {
+      font-size: 2rem;
+    }
+    
+    .description {
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+    }
+    
+    @media (max-width: 480px) {
+    .map-item {
+      flex-basis: 100%;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    .description {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    
+    .areas-served {
+      padding: 30px 10px;
+    }
+    
+    .underline {
+      margin-bottom: 20px;
+    }
+    }
+
+
+    /* Footer Section */
+ /* sign-up*/
+ .footer-section {
+    background-color: #ffffff;
+    padding: 40px 0;
+    text-align: left;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo-section {
+    flex: 1;
+    max-width: 300px;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  
+  .logo-section img {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .logo-section p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .logo-section a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    color: #007bff;
+    text-align: center;
+    line-height: 36px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .info-section {
+    flex: 1;
+    max-width: 300px;
+    margin: 0 30px;
+  }
+  
+  .info-section h4, 
+  .signup-section h4 {
+    color: #0056b3;
+    text-decoration: underline;
+    margin-bottom: 20px;
+  }
+  
+  .info-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info-section ul li {
+    margin: 15px 0;
+  }
+  
+  .info-section ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .info-section ul li a:hover {
+    color: #0056b3;
+  }
+  
+  .signup-section {
+    flex: 1;
+    max-width: 300px;
+    text-align: justify;
+  }
+  
+  .signup-section form {
+    margin-top: 15px;
+  }
+  
+  .signup-section input[type="text"], 
+  .signup-section input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .signup-section button {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-section button:hover {
+    background-color: #003f7f;
+  }
+  
+  .marketing {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+  
+  .activecamp {
+    font-size: 16px;
+    margin-top: 3px;
+  }
+  
+  .activecamp a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-row {
+        flex-direction: row;
+        align-items: left;
+        padding: 0 15px;
+        gap: 10px;
+    }
+  
+    .logo-section,
+    .info-section,
+    .signup-section {
+        max-width: 100%;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+  
+    .social-icons {
+        text-align: left;
+    }
+  }
+  
+  /* sign-up*/
+  /*footer*/
+  footer {
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 0;
+    font-size: 14px;
+    color: #333;
+    width: 100%;
+    background-color: #f9f9f9; /* Light gray background for the overall footer */
+  }
+  
+  .footer-container {
+    background-color: #d7eaf3; /* Light blue background for the copyright section */
+    padding: 15px 20px;
+    margin: 0 auto;
+    width: 100%; /* Full width to fit the background size */
+    box-sizing: border-box;
+  }
+  
+  .powered-by {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .powered-by a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex; /* To align the image and text */
+    align-items: center;
+    margin-left: 5px; /* Space between text and link */
+  }
+  
+  .footer-logo {
+    width: 150px; /* Adjust the width for desktop */
+    height: auto;
+    margin-right: 5px; /* Space between the logo and the text */
+    padding-left: 15px;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 10px 0;
+  }
+  
+  .footer-links a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .divider {
+    width: 1px;
+    height: 14px;
+    background-color: #333;
+    margin: 0 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+        width: 100%; /* Full width on smaller screens */
+    }
+  
+    .powered-by {
+        flex-direction: column; /* Stack logo and text vertically */
+        text-align: center; /* Center-align text */
+    }
+  
+    .footer-logo {
+        width: 130px; /* Smaller width for mobile screens */
+    }
+  
+    .footer-links {
+        flex-direction: column; /* Stack links vertically */
+        align-items: center;
+    }
+  
+    .footer-links a {
+        padding: 5px 0;
+    }
+  
+    .divider {
+        display: none; /* Hide dividers on small screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .powered-by {
+        font-size: 12px; /* Smaller font size for very small screens */
+    }
+  
+    .footer-links a {
+        font-size: 12px; /* Adjust link font size for small screens */
+    }
+  }
+  

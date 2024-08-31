@@ -1,0 +1,170 @@
+// FAQ Toggle Functionality
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle('open');
+    });
+});
+
+// Responsive Navigation Menu
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('nav ul');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show-menu');
+});
+
+// Smooth Scroll for Anchor Links
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+for (let anchor of anchorLinks) {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+        });
+    });
+}
+
+//extra//
+document.addEventListener('DOMContentLoaded', function () {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    
+
+    // Form validation
+    const contactForm = document.querySelector('.contact-form form');
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (validateForm()) {
+            // Here you would typically send the form data to a server
+            alert('Form submitted successfully!');
+            contactForm.reset();
+        }
+    });
+
+    function validateForm() {
+        let isValid = true;
+        const inputs = contactForm.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                isValid = false;
+                input.classList.add('error');
+            } else {
+                input.classList.remove('error');
+            }
+        });
+        return isValid;
+    }
+
+    // Services hover effect
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.05)';
+            this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        });
+        item.addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
+    });
+
+    // Sticky header
+    const header = document.querySelector('header');
+    const sticky = header.offsetTop;
+
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > sticky) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
+
+    // Dropdown menu functionality
+    const dropdown = document.querySelector('.services-dropdown');
+    dropdown.addEventListener('mouseenter', () => {
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        dropdownContent.style.display = 'flex';
+    });
+    dropdown.addEventListener('mouseleave', () => {
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        dropdownContent.style.display = 'none';
+    });
+
+    // Load more functionality for services (if applicable)
+    const loadMoreBtns = document.querySelectorAll('.load-more');
+    loadMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const serviceType = this.dataset.serviceType;
+            const hiddenServices = document.querySelectorAll(`.${serviceType}-service.hidden`);
+            hiddenServices.forEach(service => service.classList.remove('hidden'));
+            this.style.display = 'none';
+        });
+    });
+});
+
+// nav bar 
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const servicesToggle = document.querySelector('.services-toggle');
+    const servicesDropdown = document.querySelector('.services-dropdown');
+    const closeNav = document.querySelector('.close-nav');
+
+    // Toggle menu for mobile
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+
+    closeNav.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+    });
+
+    // Toggle services dropdown for both desktop and mobile
+    servicesToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        servicesDropdown.classList.toggle('active');
+
+        // Update arrow direction
+        const arrow = servicesToggle.querySelector('i');
+        if (servicesDropdown.classList.contains('active')) {
+            arrow.style.transform = 'rotate(180deg)';
+        } else {
+            arrow.style.transform = 'rotate(0deg)';
+        }
+
+        // Ensure dropdown content is fixed on screen
+        if (window.innerWidth <= 768) {
+            const dropdownContent = servicesDropdown.querySelector('.dropdown-content');
+            dropdownContent.style.display = servicesDropdown.classList.contains('active') ? 'flex' : 'none';
+        }
+    });
+
+    // Handle screen resizing
+    window.addEventListener('resize', () => {
+        const dropdownContent = servicesDropdown.querySelector('.dropdown-content');
+        if (window.innerWidth > 768) {
+            dropdownContent.style.display = servicesDropdown.classList.contains('active') ? 'flex' : 'none';
+        } else {
+            dropdownContent.style.display = 'none';
+        }
+    });
+});

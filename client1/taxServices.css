@@ -1,0 +1,1476 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top Header */
+.top-header {
+  background-color: #0056b3;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.top-header .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+/* Header */
+header {
+  background-color: white;
+  color: #333;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.logo img {
+  height: 80px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu ul li {
+  margin: 0 1rem;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: #1e1d19;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+  color: #086eda;
+}
+
+/* Services Dropdown */
+.services-dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  padding: 1rem;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row; /* Horizontal layout for desktop */
+}
+
+.services-dropdown.active .dropdown-content {
+  display: flex;
+}
+
+/* Arrow direction */
+.services-dropdown.active > a > i {
+  transform: rotate(180deg);
+}
+
+/* Dropdown columns */
+.dropdown-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-column {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.dropdown-column h3 {
+  color: #1e1d19;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.dropdown-column h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #086eda;
+}
+
+.dropdown-content a {
+  color: #1e1d19;
+  padding: 0.5rem 0;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  color: #086eda;
+}
+
+/* Header Buttons */
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Schedule Button */
+.schedule-btn {
+  background-color: #0077be;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.schedule-btn:hover {
+  background-color: #004494;
+  color: #fff;
+}
+
+/* Call Button */
+.call-btn {
+  background-color: #0077be;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.call-btn:hover {
+  background-color: #005fa3;
+}
+
+/* Menu Toggle Button for Mobile */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Close Button for Mobile Menu */
+.close-nav {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+/* Mobile Logo in Menu */
+.mobile-logo {
+  display: none;
+  margin-bottom: 20px;
+}
+
+.mobile-logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Divider between Accounting and Tax Services */
+.dropdown-divider {
+  width: 1px;
+  background-color: #ddd;
+  margin: 0 20px;
+  display: none;
+}
+
+/* Display the divider only on desktop screens */
+@media (min-width: 769px) {
+  .dropdown-divider {
+    display: block;
+  }
+}
+
+/* Mobile Navigation Menu */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1001;
+    overflow-y: auto; /* Enables vertical scrolling */
+  }
+
+  .nav-menu.show {
+    left: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .close-nav {
+    display: block;
+  }
+
+  .mobile-logo {
+    display: block;
+  }
+
+  .header-buttons {
+    display: none;
+  }
+
+  .services-dropdown .dropdown-content {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+    flex-direction: column; /* Vertical layout for mobile */
+  }
+
+  .services-dropdown.active .dropdown-content {
+    display: flex; /* Show dropdown content on mobile */
+  }
+
+  .dropdown-columns {
+    flex-direction: column; /* Stack columns vertically */
+  }
+
+  .dropdown-column {
+    padding: 10px 0;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-menu ul li {
+    margin: 10px 0;
+  }
+}
+
+
+/*hero section*/
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px; /* Reduced padding for better responsiveness */
+  background-color: #E1EEF8;
+  flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+  box-sizing: border-box; /* Include padding in total width */
+}
+
+.hero-content {
+  flex: 1 1 100%; /* Full width by default */
+  padding: 20px;
+  margin: 0 auto; /* Center content on smaller screens */
+  text-align: center; /* Center text for consistency */
+  box-sizing: border-box;
+}
+
+.hero-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1.8em; /* Smaller font size for better responsiveness */
+  color: #333;
+  text-align: center; /* Center-align heading */
+  text-transform: capitalize;
+}
+
+.hero-title .highlight {
+  color: #007BFF;
+}
+
+.hero-description {
+  margin-bottom: 20px;
+  font-size: 1em; /* Scalable font size */
+  color: #555;
+  text-align: center; /* Center-align subtext */
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin: 10px auto; /* Center-align button */
+}
+
+.hero-button:hover {
+  transform: scale(1.1);
+  background-color: black;
+}
+
+.hero-image {
+  flex: 1 1 100%; /* Full width by default */
+  margin: 20px 0; /* Spacing between content and image */
+  text-align: center; /* Center the image in the div */
+  box-sizing: border-box;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 768px) {
+  .hero-section {
+      flex-wrap: nowrap; /* Side-by-side layout for larger screens */
+  }
+
+  .hero-content, .hero-image {
+      flex: 1 1 45%; /* Half width on larger screens */
+      margin: 0 20px; /* Add space between content and image */
+  }
+
+  .hero-content {
+      text-align: left; /* Align text to the left */
+  }
+
+  .hero-title {
+      font-size: 2.2em; /* Larger font size for larger screens */
+  }
+
+  .hero-description {
+      font-size: 1.1em; /* Slightly larger text size */
+      text-align: center;
+  }
+
+  .hero-button {
+      margin: 20px 0 0 0; /* Adjust margin for alignment */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+      font-size: 2.5em; /* Larger font size for big screens */
+  }
+
+  .hero-description {
+      font-size: 1.2em; /* Larger subtext size */
+      margin-left: 40px;
+      text-align: center;
+  }
+
+  .hero-content, .hero-image {
+      flex: 1 1 45%; /* Ensures both content and image have space */
+      margin: 0 30px; /* Increased space for a more spacious layout */
+  }
+  .hero-button{
+    margin-left: 80px;
+  }
+}
+
+
+/*2nd section*/
+.tax-services {
+  text-align: center;
+  padding: 40px 20px; /* Adjusted padding for better spacing */
+  background-color: #ffffff;
+  box-sizing: border-box; /* Ensure padding is included in the total width */
+}
+
+.tax-services h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.heading-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.services-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+  margin-top: 20px;
+}
+
+.service-item1 {
+  flex: 1 1 calc(33.33% - 20px); /* Three items per row with spacing */
+  max-width: 300px; /* Limit max width for better control */
+  margin: 10px;
+  font-size: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.service-item1 img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effects */
+}
+
+/* Hover effect for all screens */
+.service-item1:hover img {
+  transform: scale(1.05); /* Slightly increase size on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+}
+
+.caption-link {
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 10px;
+  display: block; /* Ensure link takes full width */
+  padding: 5px 10px;
+}
+
+.read-more-link {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .service-item1 {
+      flex: 1 1 calc(50% - 20px); /* Two items per row on tablet screens */
+      max-width: none; /* Remove max-width to allow full flexibility */
+      margin: 10px;
+  }
+
+  .tax-services h1 {
+      font-size: 1.8em; /* Smaller font size for tablets */
+  }
+
+  .caption-link {
+      font-size: 1.1em; /* Adjust font size for readability */
+  }
+
+  .read-more-link {
+      font-size: 0.9em; /* Adjust font size for readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .service-item1 {
+      flex: 1 1 100%; /* Full width for mobile screens */
+      margin: 10px 0;
+  }
+
+  .tax-services h1 {
+      font-size: 1.5em; /* Further reduce font size for mobile */
+  }
+
+  .caption-link {
+      font-size: 1em; /* Smaller font size for mobile */
+  }
+
+  .read-more-link {
+      font-size: 0.8em; /* Adjust font size for mobile */
+  }
+}
+
+/*2nd section*/
+/*Accounting_service*/
+
+.accounting-services {
+  padding: 50px 20px;
+  text-align: center;
+  margin-bottom: 1px;
+  margin-top: 1px;
+  background-color: #E1EEF8;
+}
+
+.accounting-services h2 {
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.accounting-services h2 a {
+  color: #000;
+  text-decoration: none;
+}
+
+.accounting-services h2 a:hover {
+  text-decoration: underline;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  perspective: 1000px;
+  height: 300px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.service-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 2px rgba(0,0,0,0.1);
+}
+
+.card-front {
+  background-color: #f8f9fa;
+}
+
+.card-back {
+  background-color: #007bff;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 1rem;
+}
+
+.card-front img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-front h3 {
+  margin-top: 1rem;
+}
+
+.card-back h3 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.card-back p {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+  }
+
+  .service-card {
+      height: 250px; /* Adjust height for smaller screens */
+  }
+
+  .card-front img {
+      height: 120px; /* Adjust image height for smaller screens */
+  }
+
+  .card-back h3 {
+      font-size: 18px; /* Smaller font for smaller screens */
+  }
+
+  .card-back p {
+      font-size: 0.8rem; /* Smaller font for smaller screens */
+  }
+}
+
+/*Accounting_service*/
+
+/* why hire*/
+  .hire-owais-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.container-owais {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensures content wraps on smaller screens */
+}
+
+.image-owais {
+    flex: 1;
+    text-align: center; /* Centers the image */
+    margin-right: 20px;
+}
+
+.image-owais img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.content-owais {
+    flex: 2;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 40px 50px;
+}
+
+.name {
+    font-size: 28px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.content-owais p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.dot-icon {
+    color: #000;
+    margin-right: 10px;
+    font-size: 20px; /* Adjusts size for visual consistency */
+}
+
+ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.discovery-call-button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.discovery-call-button:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container-owais {
+        flex-direction: column; /* Stacks image and content vertically */
+        align-items: center; /* Centers the items */
+    }
+
+    .image-owais {
+        margin: 0 0 20px 0; /* Centers image and adds space below */
+    }
+
+    .content-owais {
+        max-width: 90%; /* Ensures content doesn't span too wide */
+        padding: 20px; /* Adjusts padding for smaller screens */
+    }
+
+    .name {
+        font-size: 24px; /* Adjusts heading size */
+    }
+
+    .discovery-call-button {
+        font-size: 16px; /* Adjusts button font size */
+        padding: 10px 20px; /* Adjusts button padding */
+    }
+}
+
+  /* why hire*/ 
+
+  /* FAQ*/
+/* styles.css */
+
+.faq-section {
+  padding: 20px;
+  background-color: #E1EEF8;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-container {
+  flex: 1;
+}
+
+.faq-container h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.faq-container h2 .highlight {
+  color: #007BFF;
+  position: relative;
+}
+
+.faq-container h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #007BFF;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 3px;
+  border-bottom: 3px dashed #007BFF;
+}
+
+
+p {
+  font-size: 16px;
+  color: #333;
+}
+
+.faq-item {
+  margin-top: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #0056b3;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.faq-title:before {
+  content: '\25BC';
+  font-size: 16px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0056b3;
+  transition: transform 0.3s;
+}
+
+.faq-input {
+  display: none;
+}
+
+.faq-input:checked + .faq-title:before {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 16px;
+  color: #333;
+  padding: 0 10px;
+}
+
+.faq-input:checked ~ .faq-content {
+  max-height: 200px;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .faq-container {
+      padding: 15px;
+  }
+
+  h2 {
+      font-size: 20px;
+  }
+
+  .faq-title {
+      font-size: 16px;
+  }
+
+  .faq-content {
+      font-size: 18px;
+  }
+}
+
+/* FAQ*/
+/*Testimonial section*/
+
+.testimonial {
+  background-color: #ffffff;
+  padding: 40px 20px;
+}
+
+.testimonials-section {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.testimonials-heading {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.testimonials-heading a {
+  color: #000;
+  text-decoration: none;
+}
+
+.testimonials-heading a:hover {
+  text-decoration: underline;
+}
+
+.divider-testimonial {
+  width: 50px;
+  height: 3px;
+  background-color: #007bff;
+  margin: 10px auto 30px;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-slide {
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+  margin: 10px;
+  margin-left: 30px;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote-box {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.quote {
+  font-size: 1.1em;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.author {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.subtext {
+  color: grey;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+      width: 90%;
+  }
+
+  .testimonial-slide {
+      max-width: 250px;
+  }
+}
+
+/*Testimonial section*/
+
+/* dallas*/
+/* Scalable Accounting Services Section */
+.dallas {
+  background: linear-gradient(rgba(1, 35, 71, 0.7), rgba(2, 37, 74, 0.7)), url('img/bg.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 50px 20px; /* Adjust padding for smaller screens */
+  text-align: center;
+}
+
+.contents h1 {
+  font-size: 2em; /* Smaller font size for better responsiveness */
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.3; /* Adjust line height for better readability */
+  text-align: center;
+}
+
+.cta-button {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 25px; /* Adjust padding for better button size */
+  background-color: white;
+  color: #007bff;
+  font-size: 1em; /* Smaller font size for better responsiveness */
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 768px) {
+  .dallas {
+    padding: 100px 0; /* Increased padding for larger screens */
+  }
+
+  .contents h1 {
+    font-size: 2.5em; /* Increase font size for larger screens */
+    text-align: center;
+  }
+
+  .cta-button {
+    padding: 15px 30px; /* Increased button padding */
+    font-size: 1.2em; /* Increase button font size */
+  }
+}
+
+@media (min-width: 1024px) {
+  .contents h1 {
+    font-size: 3em; /* Larger font size for big screens */
+  }
+}
+
+
+/* dallas*/
+/* area served*/
+.areas-served-section {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #E1EEF8;
+  box-sizing: border-box;
+}
+
+.shamsi {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.shamsi:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: #0066cc;
+}
+
+p.ex1 {
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  box-sizing: border-box;
+}
+
+.map-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.map-container h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 200px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.map-placeholder iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.view-map {
+  display: block;
+  text-align: right;
+  color: #0066cc;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .map-grid {
+      grid-template-columns: repeat(2, 1fr); /* Adjust to two columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .map-grid {
+      grid-template-columns: repeat(2, 1fr); /* Keep two columns for smaller screens */
+  }
+
+  .shamsi {
+      font-size: 28px; /* Adjust heading size for smaller screens */
+  }
+
+  p.ex1 {
+      font-size: 15px; /* Adjust paragraph font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .map-grid {
+      grid-template-columns: 1fr; /* Single column layout for mobile devices */
+  }
+
+  .shamsi {
+      font-size: 24px; /* Further adjust heading size for mobile */
+  }
+
+  p.ex1 {
+      font-size: 14px; /* Further adjust paragraph font size */
+  }
+
+  .map-container {
+      padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .view-map {
+      font-size: 14px; /* Adjust link font size for readability */
+  }
+}
+
+/* area served*/
+/* sign-up*/
+.footer-section {
+  background-color: #ffffff;
+  padding: 40px 20px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.footer-row {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically by default */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-section,
+.info-section,
+.signup-section {
+  flex: 1 1 100%; /* Full width on smaller screens */
+  max-width: 300px; /* Max width for larger screens */
+  margin-bottom: 20px; /* Space between items */
+  text-align: center; /* Center-align for smaller screens */
+}
+
+.logo-section img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.logo-section p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.logo-section a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  color: #007bff;
+  text-align: center;
+  line-height: 36px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.info-section h4,
+.signup-section h4 {
+  color: #0056b3;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+  text-align: center; /* Center-align list items on smaller screens */
+}
+
+.info-section ul li {
+  margin: 15px 0;
+}
+
+.info-section ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.info-section ul li a:hover {
+  color: #0056b3;
+}
+
+.signup-section form {
+  margin-top: 15px;
+  text-align: center; /* Center-align form elements */
+}
+
+.signup-section input[type="text"],
+.signup-section input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.signup-section button {
+  padding: 10px 20px;
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-section button:hover {
+  background-color: #003f7f;
+}
+
+.marketing {
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.activecamp {
+  font-size: 16px;
+  margin-top: 3px;
+}
+
+.activecamp a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 768px) {
+  .footer-row {
+      flex-direction: row; /* Side-by-side layout for larger screens */
+      justify-content: space-between;
+      align-items: flex-start;
+  }
+
+  .logo-section,
+  .info-section,
+  .signup-section {
+      flex: 1 1 30%; /* Equal width for each section */
+      max-width: 300px;
+      text-align: left; /* Align text to the left for larger screens */
+  }
+
+  .info-section ul {
+      text-align: left; /* Align list items to the left */
+  }
+
+  .signup-section form {
+      text-align: left; /* Align form elements to the left */
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-section {
+      padding: 60px 40px; /* Increased padding for large screens */
+  }
+
+  .footer-row {
+      max-width: 1400px; /* Larger container for big screens */
+  }
+
+  .logo-section,
+  .info-section,
+  .signup-section {
+      max-width: 400px; /* Larger max width for sections */
+  }
+}
+
+/* sign-up*/
+/*footer*/
+footer {
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 0;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  background-color: #f9f9f9; /* Light gray background for the overall footer */
+}
+
+.footer-container {
+  background-color: #d7eaf3; /* Light blue background for the copyright section */
+  padding: 15px 20px;
+  margin: 0 auto;
+  width: 100%; /* Full width to fit the background size */
+  box-sizing: border-box;
+}
+
+.powered-by {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.powered-by a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex; /* To align the image and text */
+  align-items: center;
+  margin-left: 5px; /* Space between text and link */
+}
+
+.footer-logo {
+  width: 150px; /* Adjust the width for desktop */
+  height: auto;
+  margin-right: 5px; /* Space between the logo and the text */
+  padding-left: 15px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding: 10px 0;
+}
+
+.footer-links a {
+  color: #007bff;
+  text-decoration: none;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background-color: #333;
+  margin: 0 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+      width: 100%; /* Full width on smaller screens */
+  }
+
+  .powered-by {
+      flex-direction: column; /* Stack logo and text vertically */
+      text-align: center; /* Center-align text */
+  }
+
+  .footer-logo {
+      width: 130px; /* Smaller width for mobile screens */
+  }
+
+  .footer-links {
+      flex-direction: column; /* Stack links vertically */
+      align-items: center;
+  }
+
+  .footer-links a {
+      padding: 5px 0;
+  }
+
+  .divider {
+      display: none; /* Hide dividers on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .powered-by {
+      font-size: 12px; /* Smaller font size for very small screens */
+  }
+
+  .footer-links a {
+      font-size: 12px; /* Adjust link font size for small screens */
+  }
+}
+
+/*footer*/
