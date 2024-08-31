@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// form//
+
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting
     showToast();
@@ -56,5 +58,6 @@ function showToast() {
     toast.className = "toast show";
     setTimeout(function() {
         toast.className = toast.className.replace("show", "");
-},3000);
+    }, 3000);
 }
+

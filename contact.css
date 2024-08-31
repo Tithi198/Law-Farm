@@ -515,18 +515,17 @@ button {
 @media (min-width: 992px) {
   .map-container iframe {
       height: 450px;
-  }
 }
-
+}
 /*contact-section*/
 
 /* area served*/
 .areas-served-section {
-  max-width: 1500px;
+  max-width:1500px;
   margin: 0 auto;
   padding: 60px 20px;
   background-color: #f6f6f6;
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
 
 .shamsi {
