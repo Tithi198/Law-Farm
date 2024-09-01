@@ -65,6 +65,7 @@
   
   .nav-menu ul li {
     margin: 0 1rem;
+    position: relative;
   }
   
   .nav-menu ul li a {
@@ -79,6 +80,42 @@
   }
   
   /* Services Dropdown */
+  .services-dropdown {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .services-dropdown .services-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: auto;
+  }
+  
+  .services-dropdown .dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    padding: 0;
+    margin-left: 5px; /* Ensure no gap between text and icon */
+    display: flex;
+    align-items: center;
+  }
+  
+  .services-dropdown .dropdown-toggle i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  .dropdown-toggle.active i {
+    transform: rotate(180deg);
+  }
+  
+  /* Dropdown Content */
   .services-dropdown .dropdown-content {
     display: none;
     position: absolute;
@@ -89,56 +126,50 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    flex-direction: row; /* Horizontal layout for desktop */
+    flex-direction: row;
+    width: max-content;
   }
   
   .services-dropdown.active .dropdown-content {
     display: flex;
   }
   
-  /* Arrow direction */
-  .services-dropdown.active > a > i {
-    transform: rotate(180deg);
-  }
-  
-  /* Dropdown columns */
+  /* Dropdown Columns */
   .dropdown-columns {
     display: flex;
     justify-content: space-between;
   }
   
   .dropdown-column {
-    flex: 1;
-    padding: 0 1rem;
+    padding: 1rem;
+    text-align: left;
   }
   
   .dropdown-column h3 {
     color: #1e1d19;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    position: relative;
-    padding-bottom: 5px;
+    border-bottom: 2px solid #086eda;
+    padding-bottom: 0.5rem;
   }
   
-  .dropdown-column h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #086eda;
-  }
-  
-  .dropdown-content a {
+  .dropdown-column a {
     color: #1e1d19;
     padding: 0.5rem 0;
     display: block;
     text-decoration: none;
   }
   
-  .dropdown-content a:hover {
+  .dropdown-column a:hover {
     color: #086eda;
+  }
+  
+  /* Divider between Accounting and Tax Services */
+  .dropdown-divider {
+    width: 1px;
+    background-color: #ddd;
+    margin: 0 20px;
+    display: block;
   }
   
   /* Header Buttons */
@@ -213,21 +244,6 @@
     width: auto;
   }
   
-  /* Divider between Accounting and Tax Services */
-  .dropdown-divider {
-    width: 1px;
-    background-color: #ddd;
-    margin: 0 20px;
-    display: none;
-  }
-  
-  /* Display the divider only on desktop screens */
-  @media (min-width: 769px) {
-    .dropdown-divider {
-      display: block;
-    }
-  }
-  
   /* Mobile Navigation Menu */
   @media (max-width: 768px) {
     header {
@@ -250,7 +266,7 @@
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
-      align-items: start;
+      align-items: center;  /* Center align all nav items */
       padding: 20px;
       transition: left 0.3s ease;
       z-index: 1001;
@@ -277,36 +293,99 @@
       display: none;
     }
   
+    .services-dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  
+    .services-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      cursor: pointer;
+    }
+  
+    .dropdown-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+      padding: 0;
+      margin-left: 5px; /* Ensure no gap between text and icon */
+      display: flex;
+      align-items: center;
+    }
+  
+    .dropdown-toggle i {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+  
+    .dropdown-toggle.active i {
+      transform: rotate(180deg);
+    }
+  
     .services-dropdown .dropdown-content {
       position: static;
       transform: none;
       box-shadow: none;
       padding: 0;
       display: none;
-      flex-direction: column; /* Vertical layout for mobile */
+      flex-direction: column; /* Vertical for mobile */
+      width: 100%;
     }
   
     .services-dropdown.active .dropdown-content {
-      display: flex; /* Show dropdown content on mobile */
-    }
-  
-    .dropdown-columns {
-      flex-direction: column; /* Stack columns vertically */
+      display: block;
     }
   
     .dropdown-column {
       padding: 10px 0;
+      width: 100%;
+    }
+  
+    .dropdown-divider {
+      display: none;
     }
   
     .nav-menu ul {
       flex-direction: column;
       width: 100%;
+      align-items: center;  /* Center align all nav items */
     }
   
     .nav-menu ul li {
       margin: 10px 0;
+      text-align: center; /* Center align nav bar text only */
+    }
+  
+    /* Ensure correct order of items */
+    .nav-menu ul li:nth-child(1) {
+      order: 1; /* Home */
+    }
+  
+    .nav-menu ul li:nth-child(2) {
+      order: 2; /* About */
+    }
+  
+    .nav-menu ul li:nth-child(3) {
+      order: 3; /* Services */
+    }
+  
+    .nav-menu ul li:nth-child(4) {
+      order: 4; /* Blog */
+    }
+  
+    .nav-menu ul li:nth-child(5) {
+      order: 5; /* Contact */
     }
   }
+  
+
   
     
     /* Hero Section */
