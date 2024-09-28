@@ -1292,6 +1292,9 @@ ul li a:hover {
   }
 /* FAQ*/
 /*Testimonial section*/
+/* Testimonials */
+
+
 .testimonial {
   background-color: #ffffff;
   padding: 40px 20px;
@@ -1310,16 +1313,9 @@ ul li a:hover {
   padding-top: 20px;
 }
 
-.testimonials-heading a {
-  color: #000;
-  text-decoration: none;
-}
 
-.testimonials-heading a:hover {
-  text-decoration: underline;
-}
 
-.divider-testimonial {
+.divider-test {
   width: 50px;
   height: 3px;
   background-color: #007bff;
@@ -1347,11 +1343,11 @@ ul li a:hover {
   padding: 20px;
   text-align: center;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   position: relative;
   margin: 10px;
-  margin-left: 30px;
+  margin-bottom: 60px;
 }
 
 .quote-container {
@@ -1381,6 +1377,28 @@ ul li a:hover {
 .subtext {
   color: grey;
   margin-top: 5px;
+  text-align: center;
+}
+
+/* Swiper Pagination Styles */
+.swiper-pagination {
+  position: relative;
+  bottom: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  background: #007bff;
+  width: 12px;
+  height: 12px;
+  margin: 5px;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #0056b3;
 }
 
 @media (max-width: 768px) {
@@ -1389,10 +1407,24 @@ ul li a:hover {
   }
 
   .testimonial-slide {
-      max-width:250px;
-}
+      max-width: 250px;
+  }
 }
 
+@media (max-width: 480px) {
+  .testimonials-heading {
+      font-size: 1.5em;
+  }
+
+  .quote {
+      font-size: 1em;
+  }
+
+  .testimonial-slide {
+      max-width: 90%;
+      margin: 0 auto;
+  }
+}
 /*Testimonial section*/
 
 /* dallas*/

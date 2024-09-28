@@ -506,10 +506,34 @@ form button:hover {
         width: 90%;
     }
 }
+@media (max-width: 768px) {
+  .contact-section {
+      flex-direction: column;
+      align-items: center;
+  }
 
+  .form-container, .info-container {
+      width: 100%; /* Full width for smaller screens */
+      max-width: 600px; /* Optional maximum width */
+  }
+}
 
+@media (max-width: 480px) {
+  .form-container, .info-container {
+      padding: 10px; /* Reduced padding for very small screens */
+  }
 
+  form input,
+  form textarea {
+      width: calc(100% - 10px); /* Adjusted width for small screen */
+      padding: 8px; /* Smaller padding for inputs */
+  }
 
+  form button {
+      width: 100%; /* Full width for the button */
+      padding: 12px; /* Increased padding for touch comfort */
+  }
+}
 
 
   /* area served*/
